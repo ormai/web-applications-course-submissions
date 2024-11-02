@@ -1,0 +1,13 @@
+.bi-star-fill, .bi-star-half {
+    color: var(--bs-yellow);
+}
+
+.bi-check-circle {
+    color: var(--bs-success)
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 35vh;
+    border-radius: var(--bs-border-radius);
+}

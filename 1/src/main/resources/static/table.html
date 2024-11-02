@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Silk Road</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+    <script crossorigin="anonymous" defer
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/interactive_table.js" type="module"></script>
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<header>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container justify-content-between">
+            <div class="navbar-brand">
+                <a class="container navbar-brand gap-1" href="home.html">
+                    <i class="bi bi-signpost-2"></i>
+                    Silk Road
+                </a>
+            </div>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex flex-row gap-4">
+                <li class="nav-item"><a aria-current="page" class="nav-link" href="home.html"><i
+                        class="bi bi-house"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="table.html"><i class="bi bi-cart"></i> Shopping
+                    cart</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="form.html"><i class="bi bi-envelope"></i> Enquires</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main class="container flex-grow-1" role="main" title="🗿">
+    <div class="pt-5 d-flex justify-content-end">
+        <button class="btn btn-primary" data-bs-target="#add-row-prompt" data-bs-toggle="modal" type="button">
+            <i class="bi bi-bag-plus-fill"></i> Add product
+        </button>
+    </div>
+    <table class="table table-hover table-striped mb-5 mt-5">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col"><i class="bi bi-currency-euro"></i></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Silk Evening Gown</td>
+            <td>Elegant full-length evening gown with a flowing design.</td>
+            <td class="row-price">250</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Printed Silk Scarf</td>
+            <td>Lightweight scarf with vibrant floral patterns.</td>
+            <td class="row-price">45</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Classic Silk Blouse</td>
+            <td>Smooth, fitted blouse perfect for professional wear.</td>
+            <td class="row-price">80</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Silk Pajama Set</td>
+            <td>Comfortable and luxurious silk pajama top and bottom.</td>
+            <td class="row-price">120</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Silk Kimono Robe</td>
+            <td>Mid-length kimono-style robe with intricate embroidery.</td>
+            <td class="row-price">150</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>Silk Maxi Dress</td>
+            <td>Breathable and stylish maxi dress with a relaxed fit.</td>
+            <td class="row-price">200</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td>Silk Head Wrap</td>
+            <td>Versatile head wrap with a soft and silky touch.</td>
+            <td class="row-price">30</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td>Silk Handkerchief Set</td>
+            <td>Set of three handkerchiefs with elegant silk textures.</td>
+            <td class="row-price">25</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td>Silk Midi Skirt</td>
+            <td>High-waisted silk skirt that pairs well with blouses.</td>
+            <td class="row-price">90</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">10</th>
+            <td>Silk Tie Collection</td>
+            <td>Set of three classic silk ties in various colors.</td>
+            <td class="row-price">70</td>
+            <td>
+                <button class="btn btn-danger" data-bs-target="#confirm-del-row" data-bs-toggle="modal" type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th scope="row">Total</th>
+            <td></td>
+            <td></td>
+            <td id="totalPrice">0</td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+    <div aria-hidden="true" class="modal fade" id="confirm-del-row" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Do you really want to delete this product?</h1>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">No</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal" id="yes-del-row" type="button">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="add-row-prompt"
+         tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-backdrop">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Add product</h1>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-row-form">
+                        <div class="mb-3">
+                            <label class="form-label" for="new-prod-name">Product name</label>
+                            <input class="form-control" id="new-prod-name" required type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="new-prod-description">Description</label>
+                            <input class="form-control" id="new-prod-description" required type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="new-prod-price">Price (€)</label>
+                            <input class="form-control" id="new-prod-price" required type="number">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal" type="submit">Add product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="d-flex bg-body-tertiary p-3 justify-content-around align-items-center">
+    <a href="https://ormai.dev/"><small>Copyright © Mario Goffredo D'Andrea, mat. 245940</small></a>
+    <button class="btn btn-secondary" onclick="window.scroll(0, 0);" title="Navigate to the top of the page"
+            type="button"><i class="bi bi-arrow-up"></i> Top
+    </button>
+</footer>
+</body>
+</html>
