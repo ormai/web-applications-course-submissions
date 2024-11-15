@@ -18,6 +18,7 @@ public class RestaurantProxy extends Restaurant {
         super(restaurant.getName(), restaurant.getDescription(), restaurant.getLocation());
     }
 
+    @Override
     public List<Dish> getDishes() {
         try (PreparedStatement ps = DataSource.getConnection().prepareStatement("""
                 SELECT dish.name, dish.ingredients

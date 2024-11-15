@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class RestaurantDAOTest {
+public class RestaurantDAOImplTest {
+    private static final RestaurantDAO dao = new RestaurantDAOImpl();
     private static final Restaurant DA_MARIO = new Restaurant("Pizzeria da Mario", "", "Corso Mazzini, Cosenza");
     private static final Dish LINGUINE = new Dish("Linguine allo scoglio", "Linguine, frutti di mare, vino bianco");
 
@@ -22,11 +23,11 @@ public class RestaurantDAOTest {
 
     @Test
     void findAllReturnsAllTheDishes() {
-        List<Restaurant> emptyQuery = RestaurantDAO.findAll();
+        List<Restaurant> emptyQuery = dao.findAll();
         assertEquals(emptyQuery.size(), 0);
 
-        RestaurantDAO.save(DA_MARIO);
-        List<Restaurant> query = RestaurantDAO.findAll();
+        dao.create(DA_MARIO);
+        List<Restaurant> query = dao.findAll();
         assertEquals(query.size(), 1);
         assertEquals(query.getFirst(), DA_MARIO);
         System.out.println(query.getFirst().toString());
@@ -34,41 +35,52 @@ public class RestaurantDAOTest {
 
     @Test
     void findByIdReturnsADishGivenItsPrimaryKey() {
-        assertNull(RestaurantDAO.findById("NonexistentPrimaryKey"));
+        assertNull(dao.findById("NonexistentPrimaryKey"));
 
-        RestaurantDAO.save(DA_MARIO);
-        assertNotNull(RestaurantDAO.findById(DA_MARIO.getName()));
-        assertEquals(RestaurantDAO.findById(DA_MARIO.getName()), DA_MARIO);
+        dao.create(DA_MARIO);
+        assertNotNull(dao.findById(DA_MARIO.getName()));
+        assertEquals(dao.findById(DA_MARIO.getName()), DA_MARIO);
     }
 
     @Test
-    void saveSavesADish() {
-        assertNull(RestaurantDAO.findById(DA_MARIO.getName())); // Pre-condition
-        assertEquals(RestaurantDAO.findAll().size(), 0);
-        RestaurantDAO.save(DA_MARIO);
-        assertNotNull(RestaurantDAO.findById(DA_MARIO.getName())); // Post-condition
-        assertEquals(RestaurantDAO.findAll().size(), 1);
-        assertEquals(RestaurantDAO.findById(DA_MARIO.getName()), DA_MARIO);
-        assertNotSame(RestaurantDAO.findById(DA_MARIO.getName()), DA_MARIO); // Equals, but different identities
+    void createSavesADish() {
+        assertNull(dao.findById(DA_MARIO.getName())); // Pre-condition
+        assertEquals(dao.findAll().size(), 0);
+        dao.create(DA_MARIO);
+        assertNotNull(dao.findById(DA_MARIO.getName())); // Post-condition
+        assertEquals(dao.findAll().size(), 1);
+        assertEquals(dao.findById(DA_MARIO.getName()), DA_MARIO);
+        assertNotSame(dao.findById(DA_MARIO.getName()), DA_MARIO); // Equals, but different identities
+    }
+
+    @Test
+    void updateWorks() {
+        dao.create(DA_MARIO);
+        dao.update(new Restaurant(DA_MARIO.getName(), DA_MARIO.getDescription(), "Burundi", List.of(LINGUINE)));
+
+        Restaurant updated = dao.findById(DA_MARIO.getName());
+        assertEquals("Burundi", updated.getLocation());
+
+        assertEquals(DA_MARIO.getName(), dao.findByDish(LINGUINE.getName()).getFirst().getName());
     }
 
     @Test
     void deleteDeletesADish() {
-        RestaurantDAO.save(DA_MARIO);
-        assertNotNull(RestaurantDAO.findById(DA_MARIO.getName())); // Pre-condition
-        assertEquals(RestaurantDAO.findAll().size(), 1);
-        RestaurantDAO.delete(DA_MARIO);
-        assertNull(RestaurantDAO.findById(DA_MARIO.getName())); // Post-condition
-        assertEquals(RestaurantDAO.findAll().size(), 0);
+        dao.create(DA_MARIO);
+        assertNotNull(dao.findById(DA_MARIO.getName())); // Pre-condition
+        assertEquals(dao.findAll().size(), 1);
+        dao.delete(DA_MARIO);
+        assertNull(dao.findById(DA_MARIO.getName())); // Post-condition
+        assertEquals(dao.findAll().size(), 0);
     }
 
     @Test
     void findByRestaurantReturnsAllTheDishesAssociatedWithTheGivenRestaurant() {
         Restaurant daMario = new Restaurant(DA_MARIO);
         daMario.getDishes().add(LINGUINE);
-        RestaurantDAO.save(daMario);
+        dao.create(daMario);
 
-        List<Restaurant> restaurants = RestaurantDAO.findByDish(LINGUINE.getName());
+        List<Restaurant> restaurants = dao.findByDish(LINGUINE.getName());
         assertEquals(1, restaurants.size());
         assertEquals(daMario, restaurants.getFirst());
 

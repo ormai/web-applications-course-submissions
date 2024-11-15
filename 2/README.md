@@ -6,9 +6,6 @@
 
 ## Soluzione
 
-I DAO sono implementati come classi statiche prive di stato. Ho scelto di fondere l'interfaccia con l'implementazione,
-poiché esiste una sola implementazione per ciascun DAO.
-
 `DataSource` tenta di stabilire una connessione con PostgresQL, nome utente `postgres`, password vuota e database
 `dao_exercise`. Lo schema relazionale è impostato da `DataSource.initDatabase()`.
 
